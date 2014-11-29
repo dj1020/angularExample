@@ -16,7 +16,7 @@ angular.module('eventApp', [])
             }
         ];
 
-        $scope.Test = function (){
+        $scope.clickMe = function (){
             alert('test');
         };
 
