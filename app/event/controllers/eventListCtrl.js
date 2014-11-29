@@ -1,4 +1,4 @@
-angular.module('eventApp', [])
+angular.module('eventApp', ['eventFilters'])
     .controller('eventListCtrl', function ($scope) {
         // Lession 5
         // Lession 5-1
