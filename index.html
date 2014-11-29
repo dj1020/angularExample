@@ -26,25 +26,21 @@
         <div class="container-fluid" ng-app="eventApp" ng-controller="eventListCtrl">
             <div class="row">
                 <div class="col-md-2">
-                    <label for="query">Search:</label><input id="query" type="text" ng-model="query"/><br/>
-                    <label for="limit">Limit To:</label><input type="text" id="limit" ng-model="limit"/>
-                    <input type="button" value="按我" ng-click="clickMe()"/>
+                    <!--<label for="limit">Limit To:</label><input type="text" id="limit" ng-model="limit"/>-->
+                    Search: <input id="query" type="text" ng-model="query.$"/><br/>
+                    Search Date: <input type="text" ng-model="query.date"/><br/>
+                    Search Name: <input type="text" ng-model="query.name"/><br/>
+                    And Operate: <input type="checkbox" ng-model="strict"/><br/>
+                    <!-- strict:boolean -->
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-8">
                     <ul>
-                        <li ng-repeat="event in events | limitTo : limit | orderBy : date : reverse">
-                            <span>{{ event.date | date : 'MMM, d, yyyy'}}</span>
-                            <p>{{ event.name }}</p>
-                            <p>{{ event.price | number:0 }}</p>
+                        <li ng-repeat="item in items | filter:query:strict">
+                            <span>{{ item.date }}</span>
+                            <p>{{ item.name }}</p>
+                            <p>{{ item.price | number:0 }}</p>
                         </li>
                     </ul>
-
-                    <hr/>
-                    <p>To Json</p>
-                    <p>{{ events | json }}</p>
-
-                    <hr/>
-                    <p></p>
                 </div>
             </div>
         </div>
