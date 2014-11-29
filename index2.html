@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body ng-app="CustomerExample">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+        <script src="app/event/filter/filterSample.js"></script>
+        <script>
+            angular.module('CustomerExample', ['eventFilters'])
+                    .controller('CustomerController', function ($scope){
+
+                    });
+        </script>
+
+        <div ng-controller="CustomerController" ng-init="Test=true">
+            {{ Test | checkmark }}
+        </div>
+
+    </body>
+</html>
