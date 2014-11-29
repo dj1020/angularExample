@@ -3,6 +3,7 @@ angular.module('eventApp', [])
         // Lession 5
         // Lession 5-1
 
+        $scope.limit = 3;
         $scope.events = [
             {
                 'date': '2014/11/29',

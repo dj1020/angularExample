@@ -26,17 +26,25 @@
         <div class="container-fluid" ng-app="eventApp" ng-controller="eventListCtrl">
             <div class="row">
                 <div class="col-md-2">
-                    <label for="query">Search:</label> <input id="query" type="text" ng-model="query"/><br/>
+                    <label for="query">Search:</label><input id="query" type="text" ng-model="query"/><br/>
+                    <label for="limit">Limit To:</label><input type="text" id="limit" ng-model="limit"/>
                     <input type="button" value="按我" ng-click="clickMe()"/>
                 </div>
                 <div class="col-md-10">
                     <ul>
-                        <li ng-repeat="event in events | filter:query">
+                        <li ng-repeat="event in events | limitTo : limit">
                             <span>{{ event.date }}</span>
                             <p>{{ event.name }}</p>
                             <p>{{ event.price | number:0 }}</p>
                         </li>
                     </ul>
+
+                    <hr/>
+                    <p>To Json</p>
+                    <p>{{ events | json }}</p>
+
+                    <hr/>
+                    <p></p>
                 </div>
             </div>
         </div>
