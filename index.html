@@ -34,6 +34,7 @@
                         <li ng-repeat="event in events | filter:query">
                             <span>{{ event.date }}</span>
                             <p>{{ event.name }}</p>
+                            <p>{{ event.price | number:0 }}</p>
                         </li>
                     </ul>
                 </div>
