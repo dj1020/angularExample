@@ -38,12 +38,12 @@
                         <option value="name">Name</option>
                         <option value="price">Price</option>
                     </select>
-                    <input type="radio" name="" id="" ng-model="reverse" ng-value="true"/>Desc
-                    <input type="radio" name="" id="" ng-model="reverse" ng-value="false"/>Asc
+                    <select ng-model="reverseVale" ng-options="reverse.name for reverse in reverses"></select>
+
                 </div>
                 <div class="col-md-8">
                     <ul>
-                        <li ng-repeat="item in items | filter:query:strict | orderBy : predicate : reverse">
+                        <li ng-repeat="item in items | filter:query:strict | orderBy : predicate : reverseVale.shade">
                             <span>{{ item.date }}</span>
                             <p>{{ item.name }}</p>
                             <p>{{ item.price | number:0 }}</p>

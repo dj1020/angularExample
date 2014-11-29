@@ -28,6 +28,11 @@ angular.module('eventApp', [])
             }
         ];
 
+        $scope.reverses = [
+            { 'name': '最新在前', 'shade': false },
+            { 'name': '最新在後', 'shade': true }
+        ];
+
         $scope.clickMe = function (){
             alert('test');
         };
