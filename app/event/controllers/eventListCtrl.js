@@ -33,6 +33,9 @@ angular.module('eventApp', [])
             { 'name': '最新在後', 'shade': true }
         ];
 
+        $scope.reverseVale = $scope.reverses[0];
+        $scope.predicate   = 'Date';
+
         $scope.clickMe = function (){
             alert('test');
         };
