@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-md-10">
                     <ul>
-                        <li ng-repeat="event in events | limitTo : limit">
+                        <li ng-repeat="event in events | limitTo : limit | orderBy : date : reverse">
                             <span>{{ event.date | date : 'MMM, d, yyyy'}}</span>
                             <p>{{ event.name }}</p>
                             <p>{{ event.price | number:0 }}</p>
