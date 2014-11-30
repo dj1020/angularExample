@@ -3,15 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 </head>
-<body ng-app="eventApp">
-    <div ng-controller="eventListCtrl3">
-        <pre>
-            {{ events | json }}
-        </pre>
+
+<body>
+    <h1>Lession</h1>
+    <div class="container-fluid" ng-app="eventApp" ng-controller="eventListCtrl">
+        <div class="row">
+            <div class="col-md-2">
+                <!--<label for="limit">Limit To:</label><input type="text" id="limit" ng-model="limit"/>-->
+                Search: <input id="query" type="text" ng-model="query.$"/><br/>
+                Search Date: <input type="text" ng-model="query.date"/><br/>
+                Search Name: <input type="text" ng-model="query.name"/><br/>
+                And Operate: <input type="checkbox" ng-model="strict"/><br/>
+                <!-- strict:boolean -->
+                Sort:
+                <select ng-model="predicate" ng-options="sort.name for sort in sortFields"></select>
+                <!--<select ng-model="langObj" ng-options="lang.name for lang in langs"></select>-->
+                <select ng-model="reverseVale" ng-options="reverse.name for reverse in reverses"></select>
+            </div>
+
+            <div class="col-md-10">
+                <div class="col-sm-6 col-md-4"
+                     ng-repeat="event in events | filter:query:strict | orderBy:predicate.value:reverseVale.shade ">
+                    <div class="thumbnail">
+                        <img class="pull-left" width="120" ng-src="{{event.imgUrl}}"/>
+                        <div class="caption">
+                            <h3><a href="#/events/{{event.id}}">{{event.date}}</a></h3>
+                            <p>{{event.name}}</p>
+                            <small>$ {{event.price | number:0 }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>-->
     <script src="app/event/controllers/eventListCtrl3.js"></script>
 </body>
 </html>
