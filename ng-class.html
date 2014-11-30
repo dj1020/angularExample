@@ -13,10 +13,14 @@
         .inactive {
             color: #484848;
         }
+        
+        .bgcolor {
+            background: yellow;
+        }
     </style>
 
     <div ng-app="OverviewApp" ng-controller="ngController">
-        <h3 ng-class="{true:'active', false:'inactive'}[isActive]"
+        <h3 ng-class="{{isActiveSwitch}}[isActive]"
             ng-mouseover="MouseOver()"
             ng-mouseleave="MouseLeave()"
             >Hello World</h3>
@@ -27,13 +31,19 @@
     <script>
         angular.module('OverviewApp', [])
                 .controller('ngController', function ($scope) {
+                    $scope.isActiveSwitch = {
+                        true : ['active', 'bgcolor'],
+                        false : 'inactive'
+                    };
+
                     $scope.isActive = false;
                     $scope.MouseLeave = function () {
                         $scope.isActive = false;
-                    }
+                    };
+
                     $scope.MouseOver = function () {
                         $scope.isActive = true;
-                    }
+                    };
                 });
     </script>
 
