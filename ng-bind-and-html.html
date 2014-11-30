@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <div ng-app="OverviewApp">
+        Name: <input ng-model="name" type="text" />
+        <h3>
+            AngularJS says hello to <span ng-bind="name || 'everyone'"></span>
+        </h3>
+
+        <div ng-controller="htmlController">
+            <h3>使用 ng-bind </h3>
+            <div ng-bind="HtmlString"></div>
+            <h3>使用 ng-bind-html</h3>
+            <div ng-bind-html="HtmlString"></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-sanitize.min.js"></script>
+
+    <script>
+        // 需要載入 ngSanitize 模組
+        angular.module('OverviewApp', ['ngSanitize'])
+                .controller('htmlController', function($scope){
+                    $scope.HtmlString = '<img src="http://icodeschool.org/img/course/menu/visual_prog.png" alt=""/>';
+                });
+    </script>
+
+</body>
+</html>
