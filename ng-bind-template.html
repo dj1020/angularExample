@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div ng-app="OverviewApp" ng-controller="ngController">
+    Time: <select name="" id="" ng-model="greet" ng-options="greet.time for greet in Greets"></select>
+    Name: <input type="text" ng-model="name"/><br/>
+    <h3 ng-bind-template="{{greet.Sayhello}}{{greet.name||'everyone'}}."></h3>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-sanitize.min.js"></script>
+
+<script>
+    angular.module('OverviewApp', [])
+            .controller('ngController', function($scope){
+                $scope.Greets = [{
+                    "time" : "11/05",
+                    "Sayhello" : "Hi, ",
+                    "name" : "guys"
+                },{
+                    "time" : "11/12",
+                    "Sayhello" : "What's up, ",
+                    "name" : "ladies"
+                }];
+                $scope.greet = $scope.Greets[0];
+            });
+</script>
+
+</body>
+</html>
