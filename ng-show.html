@@ -12,13 +12,12 @@
         <option value="English">英文</option>
         <option value="Chinese">中文</option>
     </select>
-    <div ng-show="selection == 'English'">
+    <div ng-show="getSelection()">
         <h3>ABCDEFGHIJKLMNOPQRSTUVWXYZ</h3>
     </div>
     <div ng-show="selection == 'Chinese'">
         <h3>ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒ之吃詩ㄖ茲屋絲一屋瘀...</h3>
     </div>
-
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
@@ -26,7 +25,10 @@
 <script>
     angular.module('OverviewApp', [])
             .controller('ngController', function ($scope) {
-
+                $scope.selection = 'English';
+                $scope.getSelection = function () {
+                  return ($scope.selection == 'English') ? true : false;
+                };
             });
 </script>
 
