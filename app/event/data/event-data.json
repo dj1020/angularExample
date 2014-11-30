@@ -1,0 +1,37 @@
+[
+    {
+        "id": "1",
+        "date": "2014/11/29",
+        "name": "AngularJS 菁英班 - 初階班",
+        "price": 15000,
+        "imgUrl": "http://icodeschool.org/img/course/menu/visual_prog.png"
+    },
+    {
+        "id": "2",
+        "date": "2014/11/30",
+        "name": "AngularJS 菁英班 - 中階班",
+        "price": 35000.456,
+        "imgUrl": "http://icodeschool.org/img/course/menu/python.png"
+    },
+    {
+        "id": "3",
+        "date": "2014/12/01",
+        "name": "AngularJS 菁英班 - 高階班",
+        "price": 50000.789,
+        "imgUrl": "http://icodeschool.org/img/course/menu/htmlcss.png"
+    },
+    {
+        "id": "4",
+        "date": "2014/12/05",
+        "name": "Backbone.js 菁英班 - 上",
+        "price": 15000,
+        "imgUrl": "http://icodeschool.org/img/course/menu/corona_sdk.png"
+    },
+    {
+        "id": "5",
+        "date": "2014/12/06",
+        "name": "Backbone.js 菁英班 - 下",
+        "price": 15000,
+        "imgUrl": "http://icodeschool.org/img/course/menu/girls_python.png"
+    }
+]
