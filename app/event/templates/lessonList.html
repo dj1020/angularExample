@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <!--<label for="limit">Limit To:</label><input type="text" id="limit" ng-model="limit"/>-->
+            Search: <input id="query" type="text" ng-model="query.$"/><br/>
+            Search Date: <input type="text" ng-model="query.date"/><br/>
+            Search Name: <input type="text" ng-model="query.name"/><br/>
+            And Operate: <input type="checkbox" ng-model="strict"/><br/>
+            <!-- strict:boolean -->
+            Sort:
+            <select ng-model="predicate" ng-options="sort.name for sort in sortFields"></select>
+            <!--<select ng-model="langObj" ng-options="lang.name for lang in langs"></select>-->
+            <select ng-model="reverseVale" ng-options="reverse.name for reverse in reverses"></select>
+        </div>
+
+        <div class="col-md-10">
+            <div class="col-sm-6 col-md-4"
+                 ng-repeat="event in events | filter:query:strict | orderBy:predicate.value:reverseVale.shade ">
+                <div class="thumbnail">
+                    <img class="pull-left" style="margin-right: 5px;" width="120" ng-src="{{event.imgUrl}}"/>
+                    <div class="caption">
+                        <h3><a ng-href="#/events/{{event.id}}">{{event.date}}</a></h3>
+                        <p>{{event.name}}</p>
+                        <small>$ {{event.price | number:0 }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

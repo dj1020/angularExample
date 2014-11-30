@@ -1,7 +1,7 @@
-angular.module("eventApp", [])
+angular.module("eventControllers", [])
     .controller('eventListCtrl', function ($scope, $http) {
 
-        $http.get('app/event/data/event-data.json').success(function (data) {
+        $http.get('/example3/app/event/data/event-data.json').success(function (data) {
             $scope.events = data;
         });
 
@@ -18,5 +18,12 @@ angular.module("eventApp", [])
 
         $scope.reverseVale = $scope.reverses[0];
         $scope.predicate   = $scope.sortFields[0];
+
+    })
+    .controller('eventDetailCtrl', function ($scope, $http) {
+
+        //$http.get('app/event/data/event-data.json').success(function (data) {
+        //    $scope.events = data;
+        //});
 
     });
