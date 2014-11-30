@@ -20,10 +20,12 @@ angular.module("eventControllers", [])
         $scope.predicate   = $scope.sortFields[0];
 
     })
-    .controller('eventDetailCtrl', function ($scope, $http) {
+    .controller('eventDetailCtrl', function ($scope, $http, $routeParams) {
 
-        //$http.get('app/event/data/event-data.json').success(function (data) {
-        //    $scope.events = data;
-        //});
+        $http.get('app/event/data/event-data.json').success(function (data) {
+            $scope.events = data;
+        });
+
+        $scope.id = $routeParams.eventId;
 
     });
