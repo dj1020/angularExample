@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div ng-app="OverviewApp" ng-controller="ngController">
+    <h3>
+        <input type="checkbox" name="" id="" ng-model="checked" ng-change="Change()"/>
+        {{ text }}
+    </h3>
+
+    <div ng-controller="abc">
+        {{ test }}
+    </div>
+
+    <h3>Checked: {{ checked }}</h3>
+
+    <h3>Count: {{ count }}</h3>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+
+<script>
+    angular.module('OverviewApp', [])
+            .controller('ngController', function ($scope) {
+                $scope.checked = false;
+                $scope.count = 0;
+                $scope.text = $scope.checked ? '勾屁' : '勾嘔';
+
+                $scope.Change = function () {
+                    $scope.count++;
+                    $scope.text = $scope.checked ? '勾屁' : '勾嘔';
+                }
+            })
+            .controller('abc', function ($scope) {
+                $scope.test = 'hello';
+            });
+</script>
+
+</body>
+</html>
