@@ -8,14 +8,14 @@
 
 <div ng-app="OverviewApp" ng-controller="ngController">
     請選擇語言：
-    <select name="" id="" ng-model="selection">
+    <select name="" id="" ng-model="selection" ng-change="getChange()">
         <option value="English">英文</option>
         <option value="Chinese">中文</option>
     </select>
     <div ng-show="getSelection()">
         <h3>ABCDEFGHIJKLMNOPQRSTUVWXYZ</h3>
     </div>
-    <div ng-show="selection == 'Chinese'">
+    <div ng-show="isChinese">
         <h3>ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒ之吃詩ㄖ茲屋絲一屋瘀...</h3>
     </div>
 </div>
@@ -28,6 +28,13 @@
                 $scope.selection = 'English';
                 $scope.getSelection = function () {
                   return ($scope.selection == 'English') ? true : false;
+                };
+
+                $scope.isChinese = false;
+                $scope.getChange = function () {
+                    // ???
+
+                    $scope.isChinese = true;
                 };
             });
 </script>
